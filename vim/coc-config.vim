@@ -1,3 +1,26 @@
+"
+let g:coc_global_extensions = [ 
+     \ 'coc-explorer', 
+     \ 'coc-git',
+     \ 'coc-highlight',
+     \ 'coc-tslint-plugin',
+     \ 'coc-lists',
+     \ 'coc-diagnostics',
+     \ 'coc-prettier',
+     \ 'coc-eslint',
+     \ 'coc-tsserver',
+     \ 'coc-marketplace',
+     \ 'coc-snippets',
+     \ 'coc-json',
+     \ 'coc-yaml',
+     \ 'coc-tsserver',
+     \ 'coc-html',
+     \ 'coc-css',
+     \ 'coc-vimlsp',
+     \ 'coc-rls',
+     \ 'coc-python',
+     \ 'coc-elixir']
+"
 " if hidden is not set, TextEdit might fail.
 set hidden
 
