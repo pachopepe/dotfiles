@@ -5,7 +5,7 @@ let g:coc_global_extensions = [
      \ 'coc-highlight',
      \ 'coc-tslint-plugin',
      \ 'coc-lists',
-     \ 'coc-diagnostics',
+     \ 'coc-diagnostic',
      \ 'coc-prettier',
      \ 'coc-eslint',
      \ 'coc-tsserver',
