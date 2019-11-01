@@ -227,5 +227,7 @@
   "explorer.icon.expanded": "▾",
   "explorer.icon.shrinked": "▸",
   "explorer.icon.enableNerdfont": true,
-  "git.enableGutters": true
+  "git.enableGutters": true,
+  "git.addGBlameToVirtualText": true,
+  "git.addGBlameToBufferVar": true
 }
