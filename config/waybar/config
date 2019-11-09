@@ -1,0 +1,67 @@
+// vim:ft=json
+
+{
+    "layer": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    // "modules-right": ["cpu","memory","clock"],
+    "modules-right": ["pulseaudio","network","cpu","temperature","memory","idle_inhibitor", "clock"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "clock": {
+        "format": "{:%d-%m-%y - %H:%M}",
+        "tooltip-format": "{:%a, %d %b | %H:%M}",
+        "format-alt": "{:%H:%M}"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{usage}% {load}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{used} ",
+        "max-length": 10
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}

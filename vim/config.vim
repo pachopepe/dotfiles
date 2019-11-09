@@ -121,6 +121,9 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
 
+"" Vertical Bar separator
+set fillchars+=vert:\│
+
 "" Fix backspace indent
 set backspace=indent,eol,start
 
@@ -173,8 +176,8 @@ set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
+      set guifont=Menlo:h12
+      set transparency=7
   endif
 else
   let g:CSApprox_loaded = 1
@@ -182,7 +185,7 @@ else
   " IndentLine
   let g:indentLine_enabled = 1
   let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
+  let g:indentLine_char = '░'  " '▏' '|' '┊' '┆' '│' 
   let g:indentLine_faster = 1
 
 
