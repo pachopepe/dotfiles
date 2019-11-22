@@ -34,7 +34,7 @@ set $menu wofi --show drun
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/fchaves/Documents/workspaceHS/background.png fill
+# output * bg /home/fchaves/Documents/workspaceHS/background.png fill
 # output LVDS-1 enable
 # output HDMI-A-1 res 2580x1080 pos 0 0 scale 1
 # output LVDS-1 pos 2580 0
@@ -267,11 +267,11 @@ mode "nag" {
 # Example configuration:
 #
 
-exec swayidle -w \
-        timeout 54000 'swaylock -f -c 000000' \
-        timeout 108000 'swaymsg "output * dpms off"' \
-             resume 'swaymsg "output * dpms on"' \
-        before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+#        timeout 54000 'swaylock -f -c 000000' \
+#        timeout 108000 'swaymsg "output * dpms off"' \
+#             resume 'swaymsg "output * dpms on"' \
+#        before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
