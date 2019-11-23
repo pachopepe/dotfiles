@@ -1,11 +1,13 @@
 // vim:ft=json
+// Configs
+// https://raw.githubusercontent.com/felipefacundes/dotfiles/master/config/waybar/config
 
 {
     "layer": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     // "modules-right": ["cpu","memory","clock"],
-    "modules-right": ["pulseaudio","network","cpu","temperature","memory","idle_inhibitor", "clock"],
+    "modules-right": ["pulseaudio","network","cpu","battery","memory","idle_inhibitor", "clock"],
     "sway/window": {
         "max-length": 50
     },
@@ -19,6 +21,24 @@
         "format": "{usage}% {load}%",
         "max-length": 10
     },
+    "battery": {
+        "interval": 2,
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
     "memory": {
         "interval": 30,
         "format": "{used} ",
