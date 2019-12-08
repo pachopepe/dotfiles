@@ -1,9 +1,13 @@
 {
   "languageserver": {
     "haskell": {
-      "command": "hie-wrapper",
+      // "command": "hie-wrapper",
+      "command": "ghcide",
+      "args": ["--lsp"],
       "rootPatterns": [
         ".stack.yaml",
+        ".hie-bios",
+        "BUILD.bazel",
         "cabal.config",
         "package.yaml"
       ],
@@ -14,7 +18,7 @@
       ],
       "initializationOptions": {
         "languageServerHaskell": {
-          "hlintOn": true
+          "hlintOn": false
         }
       }
     },
@@ -229,5 +233,6 @@
   "explorer.icon.enableNerdfont": true,
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
-  "git.addGBlameToBufferVar": true
+  "git.addGBlameToBufferVar": true,
+  "suggest.autoTrigger": "trigger"
 }

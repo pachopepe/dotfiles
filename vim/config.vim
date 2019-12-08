@@ -87,9 +87,9 @@ Plug 'elixir-lang/vim-elixir'
 
 " haskell
 "" Haskell Bundle
-Plug 'eagletmt/neco-ghc'
-Plug 'dag/vim2hs'
-Plug 'pbrisbin/vim-syntax-shakespeare'
+" Plug 'eagletmt/neco-ghc'
+" Plug 'dag/vim2hs'
+" Plug 'pbrisbin/vim-syntax-shakespeare'
 
 
 " python
@@ -468,10 +468,10 @@ nnoremap <Leader>o :.Gbrowse<CR>
 
 
 " haskell
-let g:haskell_conceal_wide = 1
-let g:haskell_multiline_strings = 1
-let g:necoghc_enable_detailed_browse = 1
-autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
+" let g:haskell_conceal_wide = 1
+" let g:haskell_multiline_strings = 1
+" let g:necoghc_enable_detailed_browse = 1
+" autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 
 
 " python

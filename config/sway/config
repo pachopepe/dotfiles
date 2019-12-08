@@ -20,7 +20,7 @@ set $term kitty
 # set $term WINIT_UNIX_BACKEND=x11 alacritty
 # Your preferred application launcher
 # set $menu dmenu_run
-set $db GDK_BACKEND=x11 ~/Software/dbeaver/dbeaver
+set $db GDK_BACKEND=x11 dbeaver
 # set $db ~/Software/dbeaver/dbeaver
 set $insomnia GDK_BACKEND=x11 insomnia
 # set $insomnia insomnia
@@ -34,7 +34,7 @@ set $menu wofi --show drun
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-# output * bg /home/fchaves/Documents/workspaceHS/background.png fill
+output * bg /home/fchaves/Documents/workspaceHS/background.png fill
 # output LVDS-1 enable
 # output HDMI-A-1 res 2580x1080 pos 0 0 scale 1
 # output LVDS-1 pos 2580 0

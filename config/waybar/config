@@ -6,8 +6,7 @@
     "layer": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    // "modules-right": ["cpu","memory","clock"],
-    "modules-right": ["pulseaudio","network","cpu","battery","memory","idle_inhibitor", "clock"],
+    "modules-right": ["pulseaudio","network","cpu","battery","memory","temperature","idle_inhibitor", "clock"],
     "sway/window": {
         "max-length": 50
     },
@@ -40,16 +39,22 @@
 		]
 	},
     "memory": {
-        "interval": 30,
-        "format": "{used} ",
-        "max-length": 10
-    },
+		"interval": 30,
+		"format": "{}% ",
+        "on-click": "kitty -e htop"
+	},
+//    "temperature": {
+//        "critical-threshold": 80,
+//        // "format-critical": "{temperatureC}°C {icon}",
+//        "format": "{temperatureC}°C {icon}",
+//        "format-icons": ["", "", ""]
+//    },
     "temperature": {
+        "interval": 10,
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
+        "format": "{temperatureC}°C ",
+        "on-click": "xsensors"
+	},
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",

@@ -151,8 +151,15 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+inoremap <silent><expr> <c-space> coc#refresh()
+
+nnoremap <leader> F :call CocAction('format')<CR>
+
+
 " Coc Explorer Key
 :nmap ge :CocCommand explorer<CR>
+
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " let g:airline_section_c = '%<%<%{airline#extensions#fugitiveline#bufname()}%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 let g:airline_section_c = airline#section#create(['%{airline#extensions#fugitiveline#bufname()}','%m',"   %#__accent_gray__# %{get(b:,'coc_git_blame','')} %#__restore__#", '%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'])
