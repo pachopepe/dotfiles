@@ -6,7 +6,7 @@
     "layer": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio","network","cpu","battery","memory","temperature","idle_inhibitor", "clock"],
+    "modules-right": ["pulseaudio","network","cpu","battery","memory","temperature", "clock"],
     "sway/window": {
         "max-length": 50
     },
@@ -50,7 +50,8 @@
 //        "format-icons": ["", "", ""]
 //    },
     "temperature": {
-        "interval": 10,
+        "interval": 30,
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp5_input",
         "critical-threshold": 80,
         "format": "{temperatureC}°C ",
         "on-click": "xsensors"
