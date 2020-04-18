@@ -25,8 +25,7 @@ set $db GDK_BACKEND=x11 dbeaver
 set $insomnia GDK_BACKEND=x11 insomnia
 # set $insomnia insomnia
 set $explorer caja
-# set $images_block /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
-set $images_block /home/fchaves/Pictures/Jesus.jpg
+set $images_block ~/Pictures/sway/background.jpg
 set $lock swaylock -i $images_block
 set $Menu wofi --show run 
 set $menu wofi --show drun 
