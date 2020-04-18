@@ -1,25 +1,25 @@
 "
 let g:coc_global_extensions = [ 
+     \ 'coc-css',
+     \ 'coc-diagnostic',
+     \ 'coc-elixir',
+     \ 'coc-eslint',
      \ 'coc-explorer', 
      \ 'coc-git',
      \ 'coc-highlight',
-     \ 'coc-tslint-plugin',
-     \ 'coc-lists',
-     \ 'coc-diagnostic',
-     \ 'coc-prettier',
-     \ 'coc-eslint',
-     \ 'coc-tsserver',
-     \ 'coc-marketplace',
-     \ 'coc-snippets',
-     \ 'coc-json',
-     \ 'coc-yaml',
-     \ 'coc-tsserver',
      \ 'coc-html',
-     \ 'coc-css',
-     \ 'coc-vimlsp',
-     \ 'coc-rls',
+     \ 'coc-json',
+     \ 'coc-lists',
+     \ 'coc-marketplace',
+     \ 'coc-prettier',
      \ 'coc-python',
-     \ 'coc-elixir']
+     \ 'coc-rls',
+     \ 'coc-snippets',
+     \ 'coc-tslint-plugin',
+     \ 'coc-tsserver',
+     \ 'coc-tsserver',
+     \ 'coc-vimlsp',
+     \ 'coc-yaml' ]
 "
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -46,6 +46,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -98,6 +99,7 @@ augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
@@ -151,18 +153,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-inoremap <silent><expr> <c-space> coc#refresh()
-
-nnoremap <leader> F :call CocAction('format')<CR>
-
-
 " Coc Explorer Key
 :nmap ge :CocCommand explorer<CR>
 
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" let g:airline_section_c = '%<%<%{airline#extensions#fugitiveline#bufname()}%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
-let g:airline_section_c = airline#section#create(['%{airline#extensions#fugitiveline#bufname()}','%m',"   %#__accent_gray__# %{get(b:,'coc_git_blame','')} %#__restore__#", '%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'])
-let g:airline_section_z = airline#section#create(['%3p%%',' ', '%{g:airline_symbols.linenr}%4l/%L',' ',':%3v'])
-" "%3p%% %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v
-" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\

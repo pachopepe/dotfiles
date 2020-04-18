@@ -3,10 +3,15 @@
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
-let vimplug_exists=expand('~/./autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "elixir,haskell,python"
-let g:vim_bootstrap_editor = ""				" nvim or vim
+if has('nvim')
+    let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+    let g:vim_bootstrap_editor = "nvim"
+else
+    let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+    let g:vim_bootstrap_editor = "vim"				" nvim or vim
+endif
+
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -21,90 +26,59 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
-" Required:
-call plug#begin(expand('~/./plugged'))
+" Specify a directory for plugins
+if has('nvim')
+    call plug#begin('~/.local/share/nvim/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/CSApprox'
+Plug 'Chiel92/vim-autoformat'
 Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'Yggdroot/indentLine'
-Plug 'avelino/vim-bootstrap-updater'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-titlecase'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'mileszs/ack.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tbabej/taskwiki'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
+Plug 'honza/vim-snippets'
 
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-endif
-
-let g:make = 'gmake'
-if exists('make')
-        let g:make = 'make'
-endif
-Plug 'Shougo/vimproc.vim', {'do': g:make}
-
-"" Vim-Session
+" Vim-Session
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
-"" Snippets
-" Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-"" Color
-Plug 'tomasr/molokai'
-
-"*****************************************************************************
-"" Custom bundles
-"*****************************************************************************
-
-" elixir
-Plug 'elixir-lang/vim-elixir'
-" Plug 'carlosgaldino/elixir-snippets'
-" Plug 'mhinz/vim-mix-format'
-
-
-" haskell
-"" Haskell Bundle
-" Plug 'eagletmt/neco-ghc'
-" Plug 'dag/vim2hs'
-" Plug 'pbrisbin/vim-syntax-shakespeare'
-
-
-" python
-"" Python Bundle
-Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's extra bundle
-if filereadable(expand("~/.rc.local.bundles"))
-  source ~/.rc.local.bundles
+if has('nvim')
+    Plug 'voldikss/vim-floaterm'
+else
+    Plug 'rhysd/vim-healthcheck'
 endif
+
+" Languages
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'pbrisbin/vim-syntax-shakespeare'
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'sheerun/vim-polyglot'
+Plug 'vhdirk/vim-cmake'
 
 call plug#end()
 
@@ -120,6 +94,11 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
+
+set background=dark
+set termguicolors
+" set cursorline
+set lazyredraw
 
 "" Vertical Bar separator
 set fillchars+=vert:\│
@@ -174,36 +153,19 @@ set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
 
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-      set guifont=Menlo:h12
-      set transparency=7
-  endif
+" Enable persistent undo so that undo history persists across vim sessions
+if has('nvim')
+    set undodir=~/.local/share/nvim/undo
 else
-  let g:CSApprox_loaded = 1
+    set undodir=~/.vim/undo
 
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '░'  " '▏' '|' '┊' '┆' '│' 
-  let g:indentLine_faster = 1
-
-
-  if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
-  else
-    if $TERM == 'xterm'
-      set term=xterm-256color
-    endif
-  endif
-
+    " Create directory if it doesn't exist (NeoVim creates it automatically)
+    if !isdirectory(&undodir)
+        call mkdir(&undodir)
+    end
 endif
 
-
-if &term =~ '256color'
-  set t_ut=
-endif
-
+set undofile
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -561,3 +523,4 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
