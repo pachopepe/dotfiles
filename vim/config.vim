@@ -3,7 +3,13 @@
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
-let vimplug_exists=expand('~/./autoload/plug.vim')
+if has('nvim')
+    let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+    let g:vim_bootstrap_editor = "nvim"
+else
+    let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+    let g:vim_bootstrap_editor = "vim"                          " nvim or vim
+endif
 
 let g:vim_bootstrap_langs = "elixir,haskell,python"
 let g:vim_bootstrap_editor = ""				" nvim or vim
@@ -22,7 +28,11 @@ if !filereadable(vimplug_exists)
 endif
 
 " Required:
-call plug#begin(expand('~/./plugged'))
+if has('nvim')
+    call plug#begin()
+else
+    call plug#begin(expand('~/.vim/plugged'))
+endif
 
 "*****************************************************************************
 "" Plug install packages
