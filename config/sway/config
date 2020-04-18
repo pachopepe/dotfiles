@@ -33,6 +33,7 @@ set $menus rofi -show run
 set $menu rofi -show drun 
 
 ## Mark window
+show_marks yes
 set $set_mark swaymsg -t get_marks | jq -r '.[]' | rofi -dmenu -p "Set Mark" | xargs swaymsg mark
 set $goto_mark swaymsg -t get_marks | jq -r '.[]' | rofi -dmenu -p "Goto Mark" | xargs -I{} swaymsg '[con_mark="{}"] focus'
 bindsym $mod+m exec $set_mark
