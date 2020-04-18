@@ -65,7 +65,7 @@ window#waybar.chromium {
     background-color: #eb4d4b;
 }
 
-#clock, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #mpd {
+#clock, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #mpd, #battery {
     padding: 0 10px;
     margin: 0 5px;
     color: #ffffff;
