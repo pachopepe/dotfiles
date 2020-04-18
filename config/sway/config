@@ -26,7 +26,7 @@ set $insomnia GDK_BACKEND=x11 insomnia
 # set $insomnia insomnia
 set $explorer caja
 set $images_block /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
-set $lock swaylock -i $images_block
+set $lock swaylock -i $images_block --color '#000000'
 set $Menu wofi --show run 
 set $menu wofi --show drun 
 

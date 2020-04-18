@@ -37,6 +37,11 @@ window#waybar.chromium {
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces {
+    margin-left: 1em;
+    border-radius: 12px;
+    background: rgba(23, 28, 39, 0.5);
+}
 #workspaces button {
     padding: 0 5px;
     background: transparent;
@@ -46,22 +51,25 @@ window#waybar.chromium {
 
 #workspaces button.focused {
     background: #64727D;
-    border-bottom: 3px solid #ffffff;
+    border-radius: 12px;
+}
+
+#workspaces button:hover {
+    border-width: 0px;
+    border-color: #54626D;
+    border-radius: 12px;
+    background-color: #54626D;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }
 
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid #ffffff;
-}
-
-#clock, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#clock, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #mpd {
     padding: 0 10px;
     margin: 0 5px;
     color: #ffffff;
+    border-radius: 12px;
 }
 
 #clock {
@@ -123,13 +131,11 @@ label:focus {
 }
 
 #pulseaudio {
-    background: #f1c40f;
-    color: #000000;
+    background: #c8961b;
 }
 
 #pulseaudio.muted {
-    background: #90b1b1;
-    color: #2a5c45;
+    background: #eb4d4b;
 }
 
 #custom-media {
@@ -147,7 +153,7 @@ label:focus {
 }
 
 #temperature {
-    background: #f0932b;
+    background: #58bb58;
 }
 
 #temperature.critical {
