@@ -7,6 +7,7 @@
 if has('nvim')
     let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
     let g:vim_bootstrap_editor = "nvim"
+    tnoremap <Esc>  <C-\><C-n>
 else
     let vimplug_exists=expand('~/.vim/autoload/plug.vim')
     let g:vim_bootstrap_editor = "vim"				" nvim or vim
@@ -146,7 +147,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme molokai
+silent! colorscheme sonokai
 
 set mousemodel=popup
 set t_Co=256
@@ -524,3 +525,7 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>

@@ -238,7 +238,7 @@
   // tslint
   "tslint.autoFixOnSave": true,
 
-  "python.formatting.provider": "autopep8",
+  "python.formatting.provider": "Black",
   "python.formatting.blackArgs": [],
   "python.sortImports.path": "isort",
   "python.jediEnabled": true,
@@ -246,6 +246,8 @@
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
   "python.linting.mypyEnabled": true,
+  "python.venvPath": "${workspaceFolder}",
+  "python.envFile": "${workspaceFolder}/.venv",
 
   // "explorer.icon.expanded": "▾",
   // "explorer.icon.shrinked": "▸",
