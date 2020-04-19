@@ -119,8 +119,11 @@ fi
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+
+if [ -f "$HOME/.asdf/asdf.sh" ] ; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+fi
 
 # opam configuration
 test -r /home/fchaves/.opam/opam-init/init.zsh && . /home/fchaves/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

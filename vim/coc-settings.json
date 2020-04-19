@@ -238,7 +238,7 @@
   // tslint
   "tslint.autoFixOnSave": true,
 
-  "python.formatting.provider": "autopep8",
+  "python.formatting.provider": "black",
   "python.formatting.blackArgs": [],
   "python.sortImports.path": "isort",
   "python.jediEnabled": true,
