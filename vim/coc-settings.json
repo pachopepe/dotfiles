@@ -18,6 +18,8 @@
         }
       }
     },
+    "typescript": {
+    },
     // "elixirLS": {
     //  "command": "/home/fchaves/Programing/Elixir/elixir-ls/rel/language_server.sh",
     //   "filetypes": ["elixir", "eelixir"]
@@ -246,6 +248,8 @@
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
   "python.linting.mypyEnabled": true,
+  "python.venvPath": "${workspaceFolder}",
+  "python.envFile": "${workspaceFolder}/.venv",
 
   // "explorer.icon.expanded": "▾",
   // "explorer.icon.shrinked": "▸",

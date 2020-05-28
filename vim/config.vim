@@ -7,6 +7,7 @@
 if has('nvim')
     let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
     let g:vim_bootstrap_editor = "nvim"
+    tnoremap <Esc>  <C-\><C-n>
 else
     let vimplug_exists=expand('~/.vim/autoload/plug.vim')
     let g:vim_bootstrap_editor = "vim"				" nvim or vim
@@ -36,12 +37,6 @@ endif
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'Chiel92/vim-autoformat'
-Plug 'Raimondi/delimitMate'
-Plug 'airblade/vim-gitgutter'
-Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-system-copy'
-Plug 'christoomey/vim-titlecase'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -75,10 +70,11 @@ endif
 
 " Languages
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'pbrisbin/vim-syntax-shakespeare'
+" Plug 'pbrisbin/vim-syntax-shakespeare'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'sheerun/vim-polyglot'
 Plug 'vhdirk/vim-cmake'
+" Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -146,7 +142,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme molokai
+silent! colorscheme sonokai
 
 set mousemodel=popup
 set t_Co=256
@@ -284,14 +280,14 @@ noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
+" noremap <Leader>ga :Gwrite<CR>
+" noremap <Leader>gc :Gcommit<CR>
+" noremap <Leader>gsh :Gpush<CR>
+" noremap <Leader>gll :Gpull<CR>
+" noremap <Leader>gs :Gstatus<CR>
+" noremap <Leader>gb :Gblame<CR>
+" noremap <Leader>gd :Gvdiff<CR>
+" noremap <Leader>gr :Gremove<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
@@ -523,4 +519,17 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+
+" fun! GoYCM()
+"     nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
+"     nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+"     nnoremap <buffer> <silent> <leader>gd :YcmCompleter RefactorRename<space>
+" endfun
+
+
 
