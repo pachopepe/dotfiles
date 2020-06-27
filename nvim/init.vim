@@ -49,3 +49,10 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 nnoremap <silent> <leader><space> :nohlsearch<CR>
+
+"" Neovim truecolor
+set termguicolors
+
+"" Coc floating windows colors
+" hi CocFloating guibg=none guifg=none
+

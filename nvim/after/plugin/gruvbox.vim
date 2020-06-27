@@ -1,7 +1,5 @@
 " Gruvbox configuration
 
-" silent! colorscheme gruvbox
-let g:gruvbox_termcolors = 256
-let g:gruvbox_contrast_dark = 'light'
-
-
+" autocmd vimenter * colorscheme gruvbox
+colorscheme gruvbox
+set background=dark    " Setting dark mode
