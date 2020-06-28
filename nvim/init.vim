@@ -9,14 +9,14 @@ else
     call plug#begin('~/.vim/plugged')
 endif
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jremmen/vim-ripgrep'
-Plug 'morhetz/gruvbox'
-Plug 'mbbill/undotree'
 
 call plug#end()
 
